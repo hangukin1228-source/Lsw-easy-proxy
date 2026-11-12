@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <!-- 구글 공식 파비콘 -->
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #fff;
+            color: #202124;
+            font-size: 14px;
+        }
+
+        /* 상단 네비게이션 바 */
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 6px 16px;
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.87);
+            font-size: 13px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .apps-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .apps-icon:hover {
+            background-color: rgba(60, 64, 67, 0.08);
+        }
+
+        .login-btn {
+            background-color: #1a73e8;
+            color: white !important;
+            padding: 9px 23px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none !important;
+        }
+
+        .login-btn:hover {
+            background-color: #1b66c9;
+            box-shadow: 0 1px 2px 0 rgba(66,133,244,0.3), 0 1px 3px 1px rgba(66,133,244,0.15);
+        }
+
+        /* 메인 중앙 영역 */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 110px;
+        }
+
+        .logo-container {
+            margin-bottom: 26px;
+        }
+
+        /* 검색창 영역 */
+        .search-wrapper {
+            width: 100%;
+            max-width: 584px;
+            padding: 0 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 46px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 0 14px;
+            background: #fff;
+        }
+
+        .search-bar:hover, .search-bar:focus-within {
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+            border-color: rgba(223, 225, 229, 0);
+        }
+
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            fill: #9aa0a6;
+            margin-right: 12px;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: rgba(0, 0, 0, .87);
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .right-icons svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        /* 검색 버튼 영역 */
+        .button-group {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .google-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-size: 14px;
+            padding: 0 16px;
+            height: 36px;
+            cursor: pointer;
+        }
+
+        .google-btn:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #202124;
+        }
+
+        /* 하단 Footer 영역 */
+        footer {
+            background-color: #f2f2f2;
+            color: #70757a;
+            font-size: 14px;
+        }
+
+        .footer-top {
+            padding: 15px 30px;
+            border-bottom: 1px solid #dadce0;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #70757a;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 메뉴 -->
+    <header>
+        <div class="nav-links">
+            <a href="https://mail.google.com">Gmail</a>
+            <a href="https://www.google.co.kr/imghp">이미지</a>
+            <div class="apps-icon" title="Google 앱">
+                <svg focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="#5f6368">
+                    <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
+                </svg>
+            </div>
+            <a href="https://accounts.google.com" class="login-btn">로그인</a>
+        </div>
+    </header>
+
+    <!-- 중앙 구글 로고 및 검색창 -->
+    <main>
+        <div class="logo-container">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" width="272" height="92">
+        </div>
+
+        <form class="search-wrapper" id="proxyForm">
+            <div class="search-bar">
+                <!-- 돋보기 아이콘 -->
+                <svg class="search-icon" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+
+                <input type="text" id="urlInput" class="search-input" autocomplete="off" autofocus>
+
+                <!-- 마이크 & 렌즈 아이콘 -->
+                <div class="right-icons">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" title="음성 검색">
+                        <path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path>
+                        <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                        <path fill="#fbbc05" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path>
+                        <path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path>
+                    </svg>
+                    <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" title="이미지로 검색">
+                        <rect fill="none" height="192" width="192"></rect>
+                        <g>
+                            <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
+                            <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
+                            <path fill="#ea4335" d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"></path>
+                            <path fill="#fbbc05" d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"></path>
+                            <path fill="#4285f4" d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="google-btn">Google 검색</button>
+                <button type="button" class="google-btn" onclick="window.location.href='https://www.google.com/doodles'">I'm Feeling Lucky</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- 하단 바닥글 -->
+    <footer>
+        <div class="footer-top">대한민국</div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="https://about.google/">Google 정보</a>
+                <a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt">광고</a>
+                <a href="https://www.google.com/services/">비즈니스</a>
+                <a href="https://www.google.com/search/howsearchworks/">검색의 원리</a>
+            </div>
+            <div class="footer-links">
+                <a href="https://policies.google.com/privacy">개인정보처리방침</a>
+                <a href="https://policies.google.com/terms">약관</a>
+                <a href="#">설정</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ⚠️ 본인의 실제 렌더(Render) 백엔드 서버 주소로 변경하세요!
+        const PROXY_SERVER = "https://나의-렌더-서버주소.onrender.com/proxy";
+
+        document.getElementById('proxyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let input = document.getElementById('urlInput').value.trim();
+            if (!input) return;
+
+            // 입력값이 URL 형태(점(.)이 포함되어 있고 공백이 없는 경우)인지 확인
+            const isUrl = input.includes('.') && !input.includes(' ');
+
+            if (isUrl) {
+                // http:// 또는 https:// 가 없으면 자동으로 https:// 추가
+                if (!input.startsWith('http://') && !input.startsWith('https://')) {
+                    input = 'https://' + input;
+                }
+                // 프록시 서버를 통해 이동
+                window.location.href = `${PROXY_SERVER}?url=${encodeURIComponent(input)}`;
+            } else {
+                // 일반 검색어인 경우 실제 구글 검색으로 이동 (위장용)
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(input)}`;
+            }
+        });
+    </script>
+
+</body>
+</html>
